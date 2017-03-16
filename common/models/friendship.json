@@ -1,0 +1,49 @@
+{
+  "name": "Friendship",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "properties": {
+    "sentBy": {
+      "type": "FolxUser"
+    },
+    "target": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "default": "PENDING"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "scopes": {
+    "pending": {"where": {"status": "PENDING"}}, 
+    "accepted": {"where": {"status": "ACCEPTED"}}
+  },
+  "acls": [],
+  "methods": {
+    "add": {
+      "accepts": [
+        {
+          "arg": "target",
+          "type": "string",
+          "required": true
+        },
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "http": {
+        "verb": "POST",
+        "path": "/:target/"
+      },
+      "returns":  {"arg": "data", "type": "Friendship", "root": true}
+    }
+  }
+}

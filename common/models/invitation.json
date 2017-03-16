@@ -1,0 +1,22 @@
+{
+  "name": "Invitation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "target": {
+      "type": "User",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "default": "\"PENDING\""
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

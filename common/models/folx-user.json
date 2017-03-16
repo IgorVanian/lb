@@ -1,0 +1,20 @@
+{
+  "name": "FolxUser",
+  "plural": "folxusers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+  },
+  "protected": [
+    "realm",
+    "emailVerified",
+    "password"
+  ],
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
